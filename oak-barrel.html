@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Oak Barrel – Order Online | Valley View, Ohio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --oak:#2B1A0E;--oak2:#4A2C14;--gold:#C9933A;--gold-light:#E4B96A;
+  --cream:#F6F1E9;--cream2:#EDE5D4;--charcoal:#181008;--muted:#7A6A55;
+  --white:#FFFFFF;--nav-h:64px;--pill-h:56px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--oak);min-height:100vh}
+
+.top-banner{background:var(--gold);text-align:center;padding:9px 16px;font-size:13px;font-weight:600;letter-spacing:0.06em;color:var(--charcoal)}
+.top-banner a{color:var(--charcoal);text-decoration:underline}
+
+nav{position:sticky;top:0;z-index:200;height:var(--nav-h);background:var(--charcoal);display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1.5px solid rgba(201,147,58,0.4)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-logo-icon svg{width:20px;height:20px;fill:var(--charcoal)}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--white);letter-spacing:0.02em;line-height:1}
+.nav-logo-text span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;transition:color .18s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta-group{display:flex;gap:10px}
+.nav-btn{padding:9px 20px;border-radius:5px;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background .18s,transform .12s;cursor:pointer;border:none}
+.nav-btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.3)}
+.nav-btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.nav-btn-fill{background:var(--gold);color:var(--charcoal)}
+.nav-btn-fill:hover{background:var(--gold-light);transform:scale(1.02)}
+
+.hero{background:var(--charcoal);min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 24px 72px;position:relative;overflow:hidden}
+.hero-bg-img{position:absolute;inset:0;background-image:url('https://theoakbarrel.com/wp-content/uploads/2014/04/Bar2-2000x925.jpg');background-size:cover;background-position:center;opacity:0.28}
+.hero-glow{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(24,16,8,0.55) 0%,rgba(24,16,8,0.7) 100%);pointer-events:none}
+.hero-eyebrow{font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;position:relative;z-index:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(64px,11vw,130px);font-weight:900;line-height:0.88;color:var(--white);position:relative;z-index:1;margin-bottom:8px}
+.hero h2{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,56px);font-weight:700;line-height:1.1;color:rgba(255,255,255,0.6);position:relative;z-index:1;margin-bottom:20px;font-style:italic}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.55);position:relative;z-index:1;margin-bottom:6px;line-height:1.6}
+.hero-sub2{font-size:16px;color:rgba(255,255,255,0.55);position:relative;z-index:1;margin-bottom:36px}
+.hero-order-btn{display:inline-block;background:var(--gold);color:var(--charcoal);padding:15px 40px;border-radius:5px;font-size:15px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background .18s,transform .12s;position:relative;z-index:1}
+.hero-order-btn:hover{background:var(--gold-light);transform:scale(1.03)}
+
+.pills-bar{position:sticky;top:var(--nav-h);z-index:100;background:var(--white);border-bottom:1.5px solid var(--cream2);height:var(--pill-h);display:flex;align-items:center;padding:0 24px;overflow-x:auto;gap:0;scrollbar-width:none}
+.pills-bar::-webkit-scrollbar{display:none}
+.pill{display:flex;align-items:center;gap:7px;padding:0 18px;height:100%;font-size:13px;font-weight:600;letter-spacing:0.05em;color:var(--muted);white-space:nowrap;border-bottom:2.5px solid transparent;text-decoration:none;transition:color .18s,border-color .18s;cursor:pointer;flex-shrink:0}
+.pill:hover,.pill.active{color:var(--oak);border-bottom-color:var(--gold)}
+.pill-icon{font-size:16px;line-height:1}
+
+.menu-section{padding:56px 32px 16px;max-width:1200px;margin:0 auto}
+.section-heading{margin-bottom:8px}
+.section-heading h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--charcoal);line-height:1.1}
+.section-heading p{font-size:15px;color:var(--muted);margin-top:6px;line-height:1.6;max-width:600px}
+
+.item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:28px;margin-bottom:48px}
+.item-card{background:var(--white);border:1px solid var(--cream2);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .18s;cursor:pointer}
+.item-card:hover{box-shadow:0 6px 24px rgba(43,26,14,0.12);transform:translateY(-3px)}
+.item-img{width:100%;aspect-ratio:5/2;object-fit:cover;display:block;background:var(--cream2)}
+.item-img-placeholder{width:100%;aspect-ratio:5/2;background:linear-gradient(135deg,var(--cream2) 0%,var(--cream) 100%);display:flex;align-items:center;justify-content:center;font-size:36px}
+.item-body{padding:16px 18px 20px;flex:1}
+.item-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--charcoal);margin-bottom:7px;line-height:1.25}
+.item-desc{font-size:13.5px;color:var(--muted);line-height:1.65}
+.item-badge{display:inline-block;margin-top:10px;background:var(--gold);color:var(--charcoal);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px}
+
+.section-divider{border:none;border-top:1.5px solid var(--cream2);margin:0 32px}
+
+footer{background:var(--charcoal);border-top:2px solid var(--gold);padding:52px 40px 32px;margin-top:48px}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:32px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold);margin-bottom:12px}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:280px}
+.footer-socials{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.footer-social-link{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;padding:6px 14px;border:1px solid rgba(255,255,255,0.15);border-radius:4px;transition:color .18s,border-color .18s}
+.footer-social-link:hover{color:var(--gold);border-color:var(--gold)}
+.footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+.footer-col h4{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .18s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.3)}
+
+@media(max-width:760px){
+  nav{padding:0 16px}
+  .nav-links{display:none}
+  .menu-section{padding:40px 16px 8px}
+  .section-divider{margin:0 16px}
+  footer{padding:40px 20px 24px}
+  .footer-top{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  Happy Hour Weekdays 3–6pm &nbsp;·&nbsp; Taco Tuesday $3 &amp; $4 All Day &nbsp;·&nbsp; Wine Wednesday Half Price Bottles &nbsp;
+  <a href="https://www.toasttab.com/oak-barrel/v3">Order Now →</a>
+</div>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 5.7 4.1 4.5 7H3v2h1.1c-.07.33-.1.66-.1 1v1H3v2h1v1c0 .34.03.67.1 1H3v2h1.5C5.7 19.9 8.5 22 12 22s6.3-2.1 7.5-5H21v-2h-1.1c.07-.33.1-.66.1-1v-1h1v-2h-1v-1c0-.34-.03-.67-.1-1H21V7h-1.5C18.3 4.1 15.5 2 12 2zm0 2c2.8 0 5.1 1.8 5.8 4.3L12 11 6.2 8.3C6.9 5.8 9.2 4 12 4zM6 10.2l6 2.8 6-2.8V13l-6 2.8L6 13v-2.8zM6.2 15.7L12 13l5.8 2.7C17.1 18.2 14.8 20 12 20s-5.1-1.8-5.8-4.3z"/></svg>
+    </div>
+    <div class="nav-logo-text">The <span>Oak Barrel</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#whats-on">What's On</a></li>
+    <li><a href="#food">Food</a></li>
+    <li><a href="#drinks">Drinks</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="https://theoakbarrel.com/faq/">FAQ</a></li>
+  </ul>
+  <div class="nav-cta-group">
+    <a href="https://theoakbarrel.com/events/host-your-event/" class="nav-btn nav-btn-outline">Host an Event</a>
+    <a href="https://www.toasttab.com/oak-barrel/v3" class="nav-btn nav-btn-fill">Order Online</a>
+  </div>
+</nav>
+
+<!-- HERO — uses real Oak Barrel bar photo -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-glow"></div>
+  <p class="hero-eyebrow">Valley View, Ohio &nbsp;·&nbsp; 5975 Canal Rd.</p>
+  <h1>Good Food.</h1>
+  <h2>Great Pours.</h2>
+  <p class="hero-sub">Come for the kitchen. Stay for the bar.</p>
+  <p class="hero-sub2">Your neighborhood spot done right.</p>
+  <a href="https://www.toasttab.com/oak-barrel/v3" class="hero-order-btn">Order Online</a>
+</div>
+
+<div class="pills-bar" id="pills">
+  <a class="pill active" href="#whats-on"><span class="pill-icon">🔥</span>What's On</a>
+  <a class="pill" href="#burgers"><span class="pill-icon">🍔</span>Burgers &amp; Sandwiches</a>
+  <a class="pill" href="#appetizers"><span class="pill-icon">🥟</span>Appetizers</a>
+  <a class="pill" href="#daily-specials"><span class="pill-icon">⭐</span>Daily Specials</a>
+  <a class="pill" href="#happy-hour"><span class="pill-icon">🍺</span>Happy Hour</a>
+  <a class="pill" href="#salads"><span class="pill-icon">🥗</span>Salads &amp; Sides</a>
+  <a class="pill" href="#drinks"><span class="pill-icon">🍷</span>Drinks, Beer &amp; Wine</a>
+  <a class="pill" href="#events"><span class="pill-icon">🎉</span>Events</a>
+</div>
+
+<!-- WHAT'S ON -->
+<div class="menu-section" id="whats-on">
+  <div class="section-heading">
+    <h2>What's On</h2>
+    <p>Kitchen favorites, daily specials, and everything worth ordering. Fresh out of our kitchen.</p>
+  </div>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <!-- Real Oak Barrel wonton photo from their site -->
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/04/Wonton2-2000x925.jpg" alt="Wonton Nachos" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥟</div>
+      <div class="item-body">
+        <div class="item-name">Wonton Nachos</div>
+        <div class="item-desc">Crispy wonton chips piled high with our signature toppings. One of the most popular starters at The Oak Barrel.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <!-- Real Oak Barrel burger photo -->
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/04/Oakburger2-2000x925.jpg" alt="The Oak Burger" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍔</div>
+      <div class="item-body">
+        <div class="item-name">The Oak Burger</div>
+        <div class="item-desc">Our signature pub burger — fresh beef, sharp cheddar, house sauce, on a toasted brioche bun. Served with hand-cut fries.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/03/gallery8-600x338.jpg" alt="Dining at The Oak Barrel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍽️</div>
+      <div class="item-body">
+        <div class="item-name">Daily Kitchen Specials</div>
+        <div class="item-desc">Chef-inspired rotating specials made with locally sourced, seasonal ingredients. Ask your server what's fresh today.</div>
+        <div class="item-badge">Ask Your Server</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/04/Bar2-2000x925.jpg" alt="The Oak Barrel Bar" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍺</div>
+      <div class="item-body">
+        <div class="item-name">Craft Beer &amp; Bourbon Bar</div>
+        <div class="item-desc">Extensive tap list of local craft beers, and Ohio's best selection of bourbons, whiskies, and scotches. Come thirsty.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/03/gallery12-600x338.jpg" alt="Food at The Oak Barrel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🌮</div>
+      <div class="item-body">
+        <div class="item-name">Taco Tuesday</div>
+        <div class="item-desc">$3 &amp; $4 tacos all day every Tuesday. Ahi tuna, fish, chicken, and more. Taco Tuesday is a staple at The Oak Barrel.</div>
+        <div class="item-badge">Every Tuesday</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/03/gallery10-600x338.jpg" alt="Dining room" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🎉</div>
+      <div class="item-body">
+        <div class="item-name">Host Your Event</div>
+        <div class="item-desc">Private upstairs room available for up to 100 guests. Birthdays, corporate events, celebrations — we handle everything.</div>
+        <div class="item-badge">Book a Date</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- BURGERS & SANDWICHES -->
+<div class="menu-section" id="burgers">
+  <div class="section-heading">
+    <h2>Burgers &amp; Sandwiches</h2>
+    <p>Handcrafted, pressed, and built to satisfy. New American pub fare with a French twist.</p>
+  </div>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/04/Oakburger2-2000x925.jpg" alt="The Oak Burger" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍔</div>
+      <div class="item-body">
+        <div class="item-name">The Oak Burger</div>
+        <div class="item-desc">Fresh beef patty, sharp cheddar, bibb lettuce, tomato, and house sauce on a toasted brioche bun. Served with hand-cut Idaho fries and a house-crafted pickle.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=240&fit=crop&auto=format" alt="Bacon Burger" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥓</div>
+      <div class="item-body">
+        <div class="item-name">Bacon Smash Burger</div>
+        <div class="item-desc">Smashed thin crispy-edged patty, applewood bacon, Tillamook white cheddar, pickles, and mustard-mayo on a potato roll.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=600&h=240&fit=crop&auto=format" alt="Chicken Sandwich" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🐔</div>
+      <div class="item-body">
+        <div class="item-name">All Natural Ohio Chicken Sandwich</div>
+        <div class="item-desc">All natural Ohio chicken, white cheddar, pickled red onion, cherry tomato, apple cider vinaigrette. Served with kettle chips and a house-crafted pickle.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=240&fit=crop&auto=format" alt="Open Faced Pulled Pork" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥩</div>
+      <div class="item-body">
+        <div class="item-name">Open-Faced Pulled Pork BBQ</div>
+        <div class="item-desc">Slow-cooked pulled pork on toasted bread, smothered in house BBQ sauce. A mouth-watering sandwich that keeps you coming back.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=600&h=240&fit=crop&auto=format" alt="Club Sandwich" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥪</div>
+      <div class="item-body">
+        <div class="item-name">Oak Club Sandwich</div>
+        <div class="item-desc">All natural Ohio chicken, applewood bacon, Bavarian ham, cheddar, Swiss, bibb lettuce, and tomato. Served with hand-cut fries.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1540713434306-58505cf1b6fc?w=600&h=240&fit=crop&auto=format" alt="Fish Tacos" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🌮</div>
+      <div class="item-body">
+        <div class="item-name">Canadian Walleye Po'Boy</div>
+        <div class="item-desc">Fresh crispy walleye on a hoagie roll with house slaw, pickled jalapeños, and tartar sauce. A locally loved specialty.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- APPETIZERS -->
+<div class="menu-section" id="appetizers">
+  <div class="section-heading">
+    <h2>Appetizers &amp; Snacks</h2>
+    <p>Start the table off right. From baked brie to duck fat popcorn — snacks worth savoring.</p>
+  </div>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/04/Wonton2-2000x925.jpg" alt="Wonton Nachos" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥟</div>
+      <div class="item-body">
+        <div class="item-name">Wonton Nachos</div>
+        <div class="item-desc">Crispy wonton chips layered with pulled pork or chicken, jalapeño, green onion, sesame drizzle, and sriracha cream. A fan-favorite.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1486428128344-5413e434ad35?w=600&h=240&fit=crop&auto=format" alt="Baked Brie" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🧀</div>
+      <div class="item-body">
+        <div class="item-name">Baked Brie</div>
+        <div class="item-desc">Warm, creamy baked brie with honey, toasted walnuts, and fresh herbs. Served with crostini and sliced fruit. A delicious starter.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1625938144755-652e08e359b7?w=600&h=240&fit=crop&auto=format" alt="Calamari" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🦑</div>
+      <div class="item-body">
+        <div class="item-name">Crisp Calamari</div>
+        <div class="item-desc">Lightly breaded and fried to golden perfection. Served with house-made marinara and lemon aioli. Some say the best they've had.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1608039755401-742074f0548d?w=600&h=240&fit=crop&auto=format" alt="Pretzel Bites Beer Cheese" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥨</div>
+      <div class="item-body">
+        <div class="item-name">Pretzel Bites &amp; Beer Cheese</div>
+        <div class="item-desc">Warm, soft pretzel bites served with house-made craft beer cheese dipping sauce. A bar essential and crowd pleaser.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1527515545081-5db817172677?w=600&h=240&fit=crop&auto=format" alt="Duck Fat Popcorn" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍿</div>
+      <div class="item-body">
+        <div class="item-name">Duck Fat Popcorn</div>
+        <div class="item-desc">Truffle oil, chile lime salt. Popcorn elevated to an art form. Gluten-free and completely addictive.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1615361200141-f45040f367be?w=600&h=240&fit=crop&auto=format" alt="Blue Mussels" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🦪</div>
+      <div class="item-body">
+        <div class="item-name">Roasted Blue Mussels</div>
+        <div class="item-desc">Fresh blue mussels roasted with white wine, garlic, shallots, and herbs. Served with crusty bread for soaking up the broth.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- DAILY SPECIALS -->
+<div class="menu-section" id="daily-specials">
+  <div class="section-heading">
+    <h2>Daily Specials</h2>
+    <p>Something worth coming back for every day of the week.</p>
+  </div>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&h=240&fit=crop&auto=format" alt="Tacos" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🌮</div>
+      <div class="item-body">
+        <div class="item-name">Taco Tuesday</div>
+        <div class="item-desc">$3 &amp; $4 tacos all day. Ahi tuna, fish, chicken, and rotating fillings with fresh toppings. Wildly popular — get here early.</div>
+        <div class="item-badge">Every Tuesday · All Day</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=240&fit=crop&auto=format" alt="Wine Wednesday" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍷</div>
+      <div class="item-body">
+        <div class="item-name">Wine Wednesday</div>
+        <div class="item-desc">Half price on any bottle from our full wine list. Reds, whites, rosés, and bubbles — all 50% off every Wednesday.</div>
+        <div class="item-badge">Every Wednesday · All Day</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1575367439058-6096bb522a79?w=600&h=240&fit=crop&auto=format" alt="Happy Hour" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍻</div>
+      <div class="item-body">
+        <div class="item-name">Happy Hour</div>
+        <div class="item-desc">Weekdays 3–6pm in the bar area only. Specials on domestic bottles, select house wines, draft beers, cocktails, and appetizers.</div>
+        <div class="item-badge">Mon–Fri · 3–6pm</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- HAPPY HOUR -->
+<div class="menu-section" id="happy-hour">
+  <div class="section-heading">
+    <h2>Happy Hour</h2>
+    <p>Weekdays 3–6pm in the bar area. Select specials on drinks and bites. Bar area only.</p>
+  </div>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1518099074172-2e47ee6cfdc0?w=600&h=240&fit=crop&auto=format" alt="Draft Beer" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍺</div>
+      <div class="item-body">
+        <div class="item-name">Draft Beers</div>
+        <div class="item-desc">Select draft beers on special during happy hour. Local craft and regional favorites — ask your bartender what's pouring.</div>
+        <div class="item-badge">Happy Hour Special</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=240&fit=crop&auto=format" alt="Domestic Beer" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍶</div>
+      <div class="item-body">
+        <div class="item-name">Domestic Beer Bottles</div>
+        <div class="item-desc">Select domestic bottles at happy hour pricing. Always cold, always ready. The classics are classics for a reason.</div>
+        <div class="item-badge">Happy Hour Special</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=240&fit=crop&auto=format" alt="House Wines" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥂</div>
+      <div class="item-body">
+        <div class="item-name">Select House Wines</div>
+        <div class="item-desc">Curated house red and white wines at happy hour pricing. A great glass at a price that makes the week feel shorter.</div>
+        <div class="item-badge">Happy Hour Special</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&h=240&fit=crop&auto=format" alt="Cocktails" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍹</div>
+      <div class="item-body">
+        <div class="item-name">Select Cocktails</div>
+        <div class="item-desc">House cocktails at happy hour prices. Old fashioneds, whiskey sours, and seasonal specials. Ask us what we're mixing.</div>
+        <div class="item-badge">Happy Hour Special</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/04/Wonton2-2000x925.jpg" alt="Appetizers" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥟</div>
+      <div class="item-body">
+        <div class="item-name">Select Appetizers</div>
+        <div class="item-desc">Happy hour pricing on select appetizers — perfectly paired with your drink. Great excuse to get the wonton nachos.</div>
+        <div class="item-badge">Happy Hour Special</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- SALADS & SIDES -->
+<div class="menu-section" id="salads">
+  <div class="section-heading">
+    <h2>Salads &amp; Sides</h2>
+    <p>Fresh, crisp, and made with locally sourced ingredients whenever possible.</p>
+  </div>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=240&fit=crop&auto=format" alt="Greek Wedge Salad" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥗</div>
+      <div class="item-body">
+        <div class="item-name">Greek Wedge Salad</div>
+        <div class="item-desc">Fresh wedge with cucumber, olives, French feta, red onion, cherry tomato, and a sweeter Greek dressing. Vegetarian · Gluten-free.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1547496502-affa22d38842?w=600&h=240&fit=crop&auto=format" alt="Quinoa Salad" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🌱</div>
+      <div class="item-body">
+        <div class="item-name">Red Quinoa &amp; Chickpea Salad</div>
+        <div class="item-desc">Red quinoa, chickpeas, spiced nuts, maple lime vinaigrette. Hearty, healthy, and packed with flavor. Vegetarian · Gluten-free.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&h=240&fit=crop&auto=format" alt="Hand Cut Fries" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍟</div>
+      <div class="item-body">
+        <div class="item-name">Hand-Cut Idaho Fries</div>
+        <div class="item-desc">Golden, crispy hand-cut Idaho potatoes with sea salt. A frequent favorite in reviews. Add truffle oil and parmesan to upgrade.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&h=240&fit=crop&auto=format" alt="Truffled Pomme Frites" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🧄</div>
+      <div class="item-body">
+        <div class="item-name">Truffled Pomme Frites</div>
+        <div class="item-desc">Hand-cut fries tossed in truffle oil and parmesan, served with a house-made aïoli. A popular appetizer in their own right.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1597764690523-9bda73f89bc7?w=600&h=240&fit=crop&auto=format" alt="Leek Mashed Potatoes" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥔</div>
+      <div class="item-body">
+        <div class="item-name">Leek Mashed Potatoes</div>
+        <div class="item-desc">Creamy mashed potatoes with sautéed leeks and house-made butter. A beloved side dish praised by regulars and critics alike.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- DRINKS, BEER & WINE -->
+<div class="menu-section" id="drinks">
+  <div class="section-heading">
+    <h2>Drinks, Beer &amp; Wine</h2>
+    <p>Quench your thirst with local favorites. Rotating taps, vast bourbon selection, wines for every palate.</p>
+  </div>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=240&fit=crop&auto=format" alt="Craft Beer Taps" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍺</div>
+      <div class="item-body">
+        <div class="item-name">Craft Beer on Tap</div>
+        <div class="item-desc">Rotating selection of local and regional craft beers on tap. Ales, IPAs, stouts, and lagers — the lineup changes, the quality doesn't.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=600&h=240&fit=crop&auto=format" alt="Bourbon and Whiskey" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥃</div>
+      <div class="item-body">
+        <div class="item-name">Bourbon, Whiskey &amp; Scotch</div>
+        <div class="item-desc">An extensive selection of craft bourbons, American whiskies, and Scotches. One of Ohio's best whiskey programs. Sip and savor.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=240&fit=crop&auto=format" alt="Wine Selection" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍷</div>
+      <div class="item-body">
+        <div class="item-name">Wine List</div>
+        <div class="item-desc">A large selection of reds, whites, and rosés at reasonable prices. Any bottle is half price on Wine Wednesday. By the glass always available.</div>
+        <div class="item-badge">Half Price Wednesdays</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&h=240&fit=crop&auto=format" alt="Cocktails" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍹</div>
+      <div class="item-body">
+        <div class="item-name">Craft Cocktails</div>
+        <div class="item-desc">Seasonal rotating cocktail menu. House old fashioneds, whiskey sours, and creative specials made with quality spirits and fresh ingredients.</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=600&h=240&fit=crop&auto=format" alt="Non-Alcoholic Drinks" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🥤</div>
+      <div class="item-body">
+        <div class="item-name">Non-Alcoholic &amp; Soft Drinks</div>
+        <div class="item-desc">Sparkling water, house-made lemonade, iced tea, Coke, Diet Coke, Sprite, and more. Something refreshing for everyone.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- EVENTS -->
+<div class="menu-section" id="events">
+  <div class="section-heading">
+    <h2>Events &amp; Private Dining</h2>
+    <p>From casual get-togethers to fully hosted private events — The Oak Barrel is your place.</p>
+  </div>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/04/Dining2-2000x925.jpg" alt="Dining Room" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🍽️</div>
+      <div class="item-body">
+        <div class="item-name">Private Dining Room</div>
+        <div class="item-desc">Upstairs private room available for up to 100 guests. Perfect for birthdays, celebrations, or any occasion that calls for a great meal.</div>
+        <div class="item-badge">Up to 100 Guests</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/03/gallery18-600x338.jpg" alt="Events at The Oak Barrel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">💼</div>
+      <div class="item-body">
+        <div class="item-name">Corporate Events</div>
+        <div class="item-desc">Team dinners, happy hours, and private buyouts. A warm, inviting venue with exposed brick and a fireplace that gets people talking.</div>
+        <div class="item-badge">Inquire Today</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/03/gallery19-600x338.jpg" alt="Oak Barrel Atmosphere" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">🎊</div>
+      <div class="item-body">
+        <div class="item-name">Birthday &amp; Celebrations</div>
+        <div class="item-desc">Let us host your next celebration. Custom menus and bar packages available on request. Our staff goes above and beyond for large groups.</div>
+        <div class="item-badge">Reserve a Space</div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <img class="item-img" src="https://theoakbarrel.com/wp-content/uploads/2014/03/gallery24-600x338.jpg" alt="Oak Barrel Events" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="item-img-placeholder" style="display:none">📅</div>
+      <div class="item-body">
+        <div class="item-name">Upcoming Events</div>
+        <div class="item-desc">Live music, trivia nights, seasonal specials, and more. Stay tuned — something great is always around the corner at The Oak Barrel.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">The Oak Barrel</div>
+      <p>Brasserie &amp; Tap House. Locally sourced New American cuisine with a French twist. Craft beers, bourbons, and a warm welcome since 2012.</p>
+      <div class="footer-socials">
+        <a class="footer-social-link" href="https://www.facebook.com/theoakbarrelcle/">Facebook</a>
+        <a class="footer-social-link" href="#">Instagram</a>
+        <a class="footer-social-link" href="#">Twitter</a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="https://theoakbarrel.com/about/">About</a></li>
+          <li><a href="https://theoakbarrel.com/menu/food/">Food Menu</a></li>
+          <li><a href="https://theoakbarrel.com/gallery/">Gallery</a></li>
+          <li><a href="https://theoakbarrel.com/press/">Press</a></li>
+          <li><a href="https://theoakbarrel.com/faq/">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Events</h4>
+        <ul>
+          <li><a href="https://theoakbarrel.com/events/our-events/">Our Events</a></li>
+          <li><a href="https://theoakbarrel.com/events/host-your-event/">Host Your Event</a></li>
+          <li><a href="https://theoakbarrel.com/contact/">Contact Us</a></li>
+          <li><a href="https://www.toasttab.com/oak-barrel/v3">Order Online</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <ul>
+          <li><a href="https://www.google.com/maps/place/5975+Canal+Rd/@41.399502,-81.626053,17z">5975 Canal Rd.<br>Valley View, OH 44125</a></li>
+          <li><a href="tel:216-520-3640">216.520.3640</a></li>
+          <li><a href="#">Tue–Thu: 11am–10pm</a></li>
+          <li><a href="#">Fri–Sat: 11am–11pm</a></li>
+          <li><a href="#">Sun–Mon: 11am–9pm</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 The Oak Barrel. All Rights Reserved.</p>
+    <p>5975 Canal Rd, Valley View, Ohio 44125 &nbsp;·&nbsp; 216.520.3640</p>
+  </div>
+</footer>
+
+<script>
+const sections=document.querySelectorAll('.menu-section[id]');
+const pills=document.querySelectorAll('.pill');
+function updateActive(){
+  let current='';
+  const offset=64+56+20;
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-offset)current=s.id});
+  pills.forEach(p=>{
+    const href=p.getAttribute('href').replace('#','');
+    p.classList.toggle('active',href===current);
+  });
+}
+window.addEventListener('scroll',updateActive,{passive:true});
+pills.forEach(p=>{
+  p.addEventListener('click',e=>{
+    e.preventDefault();
+    const target=document.querySelector(p.getAttribute('href'));
+    if(target)window.scrollTo({top:target.offsetTop-64-56-8,behavior:'smooth'});
+    p.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  });
+});
+</script>
+</body>
+</html>
